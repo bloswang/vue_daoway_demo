@@ -1,0 +1,48 @@
+.footer{
+    text-align: center;
+}
+.footer h3 {
+    color: #333333;
+    font-weight: bold;
+}
+.footer p{
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+.yes{
+    width: 600px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.yes .quan{
+    position:relative;
+    float: left;
+    width: 44px;
+    text-align: center;
+}
+#quan2{
+    margin:0 230px;
+}
+.hotCity{
+    overflow: hidden;
+    width:80%;
+    margin:50px auto;
+    text-align: left;
+}
+.cityName{
+    margin-right: 100px;
+    color: #000;
+    float: left;
+}
+.hotCity li{
+    margin-right: 30px;
+    font-size: 18px;
+    float: left;
+    color: #999;
+}
+.footerB{
+    text-align: center;
+    margin-top: 50px;
+    color: #8c8c8c;
+}
