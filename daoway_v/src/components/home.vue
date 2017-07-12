@@ -21,7 +21,9 @@
 
           <ul class="banner_left">
             <li>
-              <a href="#">家庭保洁</a>
+              <router-link to="/all_list">
+                家庭保洁
+              </router-link>
               <div class="leftB"></div>
               <div class="rightB"></div>
               <ul class="ulTwo">
@@ -155,7 +157,7 @@
     }
 </script>
 
-<style>
+<style scoped>
   /*轮播图样式*/
   .c_img img{
     position: relative;

@@ -95,7 +95,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .dow_banner{
     margin: 65px auto 0px;
     width:90%;

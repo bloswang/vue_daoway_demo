@@ -13,14 +13,14 @@
           <ul class="header_list">
             <li><router-link to="/">首页</router-link></li>
             <li><router-link to="/downloadApp">下载APP</router-link></li>
-            <li><router-link to="/seller">服务商li</router-link></li>
+            <li><router-link to="/seller">服务商</router-link></li>
             <li><router-link to="/server_join">商家入驻</router-link></li>
             <li><a href="#">关于我们</a></li>
-            <li>
-              <div class="login">
-                <a href="#">商家登录</a>
-              </div>
+            <router-link to="/login">
+            <li class="login">
+              <div class="login">商家登录</div>
             </li>
+            </router-link>
           </ul>
         </div>
       </div>
@@ -35,7 +35,7 @@
     }
 </script>
 
-<style>
+<style scoped>
   /*header部分的样式*/
   .header {
     height: 65px;
@@ -99,8 +99,11 @@
     line-height: 30px;
     text-align: center;
   }
-  .header_right .header_list li .login a{
+  .header_right .header_list .login {
     color: white;
+  }
+  .header_right .header_list li .login:hover{
+    background-color: #B43B37;
   }
 
 </style>

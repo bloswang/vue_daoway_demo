@@ -35,38 +35,42 @@
         </ul>
       </div>
       <div class="con_btn">
-        <div class="btn1"><a href="#">服务项目</a></div>
-        <div class="btn1"><a href="#">商家简介</a></div>
-        <div class="btn1"><a href="#">用户评论</a></div>
+        <div class="btn1"><a href="#ser">服务项目</a></div>
+        <div class="btn1"><a href="#sel">商家简介</a></div>
+        <div class="btn1"><a href="#com">用户评论</a></div>
       </div>
       <div class="con_list">
         <div class="lists">
           <!--服务项-->
-          <div class="list_name">
-            <div class="name">服务项目</div>
+          <div class="list_name" >
+            <div class="name" id='ser'>服务项目</div>
           </div>
-          <div class="list">
-            <div class="list_img">
-              <img src="./menu-clean/clean1.jpg" alt="">
+          <router-link to="/seller_list" class="no_line">
+            <div class="list">
+              <div class="list_img">
+                <img src="./menu-clean/clean1.jpg" alt="">
+              </div>
+              <div class="list_text">
+                <p class="p1">家庭保洁</p>
+                <p class="p2">服务内容： 家庭保洁服务，2小时起订。（云家政暂时不提供带保...</p>
+                <p class="p3"><span class="big_red">30</span>元/小时 <span>原价50元</span> <span class="rignt_text">已售34818</span></p>
+              </div>
             </div>
-            <div class="list_text">
-              <p class="p1">家庭保洁</p>
-              <p class="p2">服务内容： 家庭保洁服务，2小时起订。（云家政暂时不提供带保...</p>
-              <p class="p3"><span class="big_red">30</span>元/小时 <span>原价50元</span> <span class="rignt_text">已售34818</span></p>
+          </router-link>
+          <router-link to="/seller_list" class="no_line">
+            <div class="list">
+              <div class="list_img">
+                <img src="./menu-clean/clean1.jpg" alt="">
+              </div>
+              <div class="list_text">
+                <p class="p1">家庭保洁</p>
+                <p class="p2">服务内容： 家庭保洁服务，2小时起订。（云家政暂时不提供带保...</p>
+                <p class="p3"><span class="big_red">30</span>元/小时 <span>原价50元</span> <span class="rignt_text">已售34818</span></p>
+              </div>
             </div>
-          </div>
-          <div class="list">
-            <div class="list_img">
-              <img src="./menu-clean/clean1.jpg" alt="">
-            </div>
-            <div class="list_text">
-              <p class="p1">家庭保洁</p>
-              <p class="p2">服务内容： 家庭保洁服务，2小时起订。（云家政暂时不提供带保...</p>
-              <p class="p3"><span class="big_red">30</span>元/小时 <span>原价50元</span> <span class="rignt_text">已售34818</span></p>
-            </div>
-          </div>
+          </router-link>
             <!--服务商简介-->
-          <div class="list_name m_t">
+          <div class="list_name m_t" id='sel' >
             <div class="name">商家简介</div>
           </div>
           <div class="list">
@@ -87,7 +91,7 @@
             </div>
           </div>
           <!--服务评价-->
-          <div class="list_name">
+          <div class="list_name" id="com">
             <div class="name">用户评论</div>
           </div>
           <div class="list">
@@ -160,18 +164,7 @@
           <img src="./menu-clean/yuyue.png" alt="">
         </div>
       </div>
-      <div class="fenye">
-        <a href="#" class="pageup greycolor">&lt;上一页</a>
-        <div id="showPage">
-          <a href="#" class="num">1</a>
-          <a href="#" class="num">2</a>
-          <a href="#" class="num">3</a>
-          <a href="#" class="num">4</a>
-          <a href="#" class="num">5</a>
-          ...
-      </div>
-        <a href="#" class="pagedown ">下一页&gt;</a>
-      </div>
+      <fenye></fenye>
     </div>
     <Vfooter></Vfooter>
   </div>
@@ -180,124 +173,25 @@
 <script>
   import Vheader from "./header.vue"
   import Vfooter from  "./footer.vue"
+  import fenye from "./fenye/fenye.vue"
   export default {
     components : {
       Vfooter,
-      Vheader
+      Vheader,
+      fenye
     }
   }
 </script>
-<style>
+<style scoped>
+  #sel:target{
+    transition: 0.5s;
+  }
+  .no_line{
+    text-decoration: none;
+  }
   .m_t{
     margin-top: 50px;
   }
-  /*底部翻页*/
-  .fenye{
-    width: 100%;
-    overflow: hidden;
-    height: 50px;
-    padding-left: 500px;
-    line-height: 50px;
-    margin-bottom: 50px; ;
-  }
-  .fenye a{
-    color: #000000;
-    text-decoration: none;
-  }
-  .pageup,#showPage,.pagedown{
-    float: left;
-  }
-  .pagedown:hover{
-    background: red;
-    color: white;
-    transition: 0.5s;
-  }
-  .pageup:hover{
-    background: red;
-    color: white;
-    transition: 0.5s;
-  }
-  .num:hover{
-    background: red;
-    color: white;
-    transition: 0.5s;
-  }
-  .num{
-    display: inline-block;
-    line-height: 30px;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(191,191,191,.5);
-  }
-  .pageup,.pagedown{
-    line-height: 30px;
-    text-align: center;
-    width: 80px;
-    height: 30px;
-    border: 1px solid rgba(191,191,191,.5);
-    margin: 10px;
-  }
-
-  /*底部翻页*/
-    .con_top{
-      overflow: hidden;
-      width:100%;
-      margin-top: 65px;
-      padding-top: 30px;
-    }
-    .c_left{
-    height: 120px;
-    margin-left: 30px;
-    float: left;
-    padding-top: 50px;
-    padding-left: 50px;
-  }
-    .big_text{
-      font-size: 35px;
-      font-weight: bold;
-    }
-    .smol_text{
-      margin-left: 10px;
-      color: #5e5e5e;
-    }
-    .red_text{
-      color: red;
-    }
-    .c_right{
-    width: 300px;
-    height: 120px;
-    margin-right: 80px;
-    float: right;
-    padding-top: 40px;
-  }
-    .c_right li{
-    margin-top: 10px;
-    text-align: center;
-    width: 33.33%;
-    float: left;
-  }
-
-    .con_btn{
-      width:100%;
-      height: 40px;
-      background-color: #323434;
-      padding-left: 70px;
-    }
-    .con_btn .btn1{
-      width: 140px;
-      height: 100%;
-      float: left;
-      line-height: 40px;
-      text-align: center;
-    }
-    .con_btn .btn1 a{
-      color: #ffffff;
-      text-decoration: none;
-    }
-    .con_btn .btn1:hover{
-      background: #444;
-    }
 
   .con_list{
     margin:20px auto;

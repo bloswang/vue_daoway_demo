@@ -132,7 +132,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .server_content{
     margin-top: 65px;
     width:100%;

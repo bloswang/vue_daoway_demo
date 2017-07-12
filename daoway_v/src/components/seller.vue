@@ -143,7 +143,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .seller{
     margin-top: 50px;
     margin-bottom: 20px;
