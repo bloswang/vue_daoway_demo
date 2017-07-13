@@ -40,23 +40,25 @@
         <div class="btn1"><a href="#com">用户评论</a></div>
       </div>
       <div class="con_list">
-        <div class="lists">
+        <div class="lists" v-for="seller in sellers" v-if="seller.id == $route.params.id">
           <!--服务项-->
           <div class="list_name" >
             <div class="name" id='ser'>服务项目</div>
           </div>
-          <router-link to="/seller_list" class="no_line" v-for="(sel,index) in seller" :key="index">
-            <div class="list">
-              <div class="list_img">
-                <img :src="sel.list_img" alt="">
-              </div>
-              <div class="list_text">
-                <p class="p1">{{sel.list_name}}</p>
-                <p class="p2">{{sel.list_time}}</p>
-                <p class="p3"><span class="big_red">{{sel.list_price}}</span>元/小时 <span>原价{{sel.list_old_price}}元</span> <span class="rignt_text">已售{{sel.list_num}}</span></p>
-              </div>
-            </div>
-          </router-link>
+         <div  v-for="(sel,index) in seller.server_list" :key="index">
+           <router-link to="/seller_list" class="no_line">
+             <div class="list">
+               <div class="list_img">
+                 <img :src="sel.list_img" alt="">
+               </div>
+               <div class="list_text">
+                 <p class="p1">{{sel.list_name}}</p>
+                 <p class="p2">{{sel.list_time}}</p>
+                 <p class="p3"><span class="big_red">{{sel.list_price}}</span>元/小时 <span>原价{{sel.list_old_price}}元</span> <span class="rignt_text">已售{{sel.list_num}}</span></p>
+               </div>
+             </div>
+           </router-link>
+         </div>
 
             <!--服务商简介-->
           <div class="list_name m_t" id='sel' >
@@ -64,10 +66,10 @@
           </div>
           <div class="list">
             <div class="seler_text">
-              <span>{{seller2.server_name}}</span>
+              <span>{{seller.server_name}}</span>
               <img src="./menu-clean/seller-logo.jpg" alt="">
 
-            <p>{{seller2.seller_massage}}
+            <p>{{seller.seller_massage}}
             </p>
             </div>
           </div>
@@ -156,23 +158,13 @@
   import Vfooter from  "./footer.vue"
   import fenye from "./fenye/fenye.vue"
   export default {
-    data () {
-      return {
-        seller:[],
-        seller2:{}
-      }
-    },
-    created(){
-        const result = this.$route.query.seller
-        this.seller2 = result
-        this.seller = result.server_list
-        console.log(result)
-    },
+    props:['sellers'],
     components : {
       Vfooter,
       Vheader,
       fenye
     }
+
   }
 </script>
 <style scoped>

@@ -5,46 +5,31 @@
       <div class="content">
         <div class="seller">服务商</div>
         <ul>
-          <router-link
-            :to="{path: '/server_comments', query:{seller: seller}}"
-            v-for="(seller,index) in sellers" :key="index">
-            <li>
-              <div class="home_clean">
-                <img :src="seller.img" alt="">
-                <p style="margin-top: 15px">
-                  <b>{{seller.name}}</b>
-                </p>
-                <p class="pp">
-                  已接单{{seller.success_num}}单
+          <div v-for="(seller,index) in sellers" :key="index">
+            <router-link
+              :to="`/server_comments/${seller.id}`"
+            >
+              <li>
+                <div class="home_clean">
+                  <img :src="seller.img">
+                  <p style="margin-top: 15px">
+                    <b>{{seller.name}}</b>
+                  </p>
+                  <p class="pp">
+                    已接单{{seller.success_num}}单
                   <i>好评{{seller.good_num}}%</i>
-                </p>
-              </div>
-            </li>
-          </router-link>
+                  </p>
+                </div>
+              </li>
+            </router-link>
+
+          </div>
 
           <div class="sellerIn">
 
           </div>
         </ul>
-        <ul>
-          <router-link to="/server_comments" v-for="(seller,index) in sellers" :key="index">
-            <li>
-              <div class="home_clean">
-                <img :src="seller.img" alt="">
-                <p style="margin-top: 15px">
-                  <b>{{seller.name}}</b>
-                </p>
-                <p class="pp">
-                  已接单{{seller.success_num}}单
-                  <i>好评{{seller.good_num}}%</i>
-                </p>
-              </div>
-            </li>
-          </router-link>
-          <div class="daowayApp">
-            <img src="./images/daowayApp.png" alt="">
-          </div>
-        </ul>
+
       </div>
     </div>
     <Vfooter></Vfooter>
@@ -56,24 +41,12 @@
   import Vheader from "./header.vue"
   import Vfooter from  "./footer.vue"
   export default {
-    data(){
-        return{
-            sellers:[]
-        }
-    },
+    props:['sellers','sellerCommentData'],
     components : {
       Vfooter,
       Vheader
     },
-    created(){
-      axios.get("/api/seller")
-        .then((response) =>{
-          const result = response.data
-          const msg = result.data
-          this.sellers = msg.sellers
-          console.log(this.sellers)
-        })
-    }
+
   }
 </script>
 

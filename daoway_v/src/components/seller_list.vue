@@ -2,7 +2,7 @@
   <div>
     <Vheader></Vheader>
     <div class="server_content">
-      <div class="server_list">
+      <div class="server_list" v-for="server in servers" v-if="server.id == $route.params.id">
         <div class="fenlei">
           <span>所有分类</span> &nbsp;&gt; <span>家庭保洁</span>&nbsp;&gt; <span>家庭保洁</span>
         </div>
@@ -62,8 +62,6 @@
             </div>
           </div>
         </div>
-
-
         <div class="server_data">
           <div class="border_B">
             服务描述
@@ -124,11 +122,12 @@
   import Vheader from "./header.vue"
   import Vfooter from  "./footer.vue"
   export default {
-      props:['server'],
+      props:['servers'],
       components : {
         Vfooter,
         Vheader
-      }
+      },
+
   }
 </script>
 
@@ -223,7 +222,7 @@
     margin-top: 10px;
     margin-bottom: 30px;
     padding: 20px;
-    width: 960px;
+    width: 940px;
     border: 1px solid rgba(191,191,191,0.5);
     float: left;
   }

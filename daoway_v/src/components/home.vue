@@ -138,27 +138,30 @@
         <h3>家庭保洁</h3>
         <p class="list_text">小时工/开荒保洁/擦玻璃/深度保洁/家居养护/杀虫灭鼠</p>
         <div class="mone">
-          <router-link :to="{path: '/all_list', query:{servers: servers}}">
+          <router-link to="all_list">
             更多服务
           </router-link>
         </div>
-        <ul>
-          <router-link  to="/seller_list" v-for="(server,index) in servers" :key="index">
-            <li @click="msg_save(server)">
-              <div class="home_clean">
-                <img :src="server.image">
-                <p class="massage">{{server.seller_name}}</p>
-                <p class="item_text">时长：90分钟
+        <ul >
+          <div v-for="(server,index) in servers" :key="index">
+            <router-link  :to="`/seller_list/${server.id}`" >
+              <li @click="msg_save(server)">
+                <div class="home_clean">
+                  <img :src="server.image">
+                  <p class="massage">{{server.seller_name}}</p>
+                  <p class="item_text">时长：90分钟
                         服务姿势：卧姿
 
                         适用介绍：
                         适用于工作繁忙...</p>
-                <span class="money">{{server.price}}</span>
-                <span>元/次</span>
-                <button class="btn">查看详情</button>
-              </div>
-            </li>
-          </router-link>
+                  <span class="money">{{server.price}}</span>
+                  <span>元/次</span>
+                  <div class="btn">查看详情</div>
+                </div>
+              </li>
+            </router-link>
+          </div>
+
         </ul>
       </div>
       <Vfooter></Vfooter>
@@ -174,17 +177,7 @@
     import Vfooter from  "./footer.vue"
 
     export default {
-        /*data(){
-            return {
-                servers : []
-            }
-        },*/
-      props:['servers','massage'],
-      methods:{
-        msg_save (server) {
-          this.massage(server)
-        }
-      },
+      props:['servers'],
       components :{
         Vheader,
         Vfooter
@@ -193,6 +186,8 @@
 </script>
 
 <style scoped>
+
+
   /*content样式*/
   .content{
     position: relative;
@@ -230,10 +225,9 @@
   }
   .content ul li{
     position: relative;
-    width:228px;
+    width:225px;
     float: left;
     border: 1px solid rgba(234,234,234,0.8);
-
     margin:8px;
     text-align: left;
   }
@@ -257,19 +251,22 @@
     color: #333333;
   }
   .home_clean span {
-    color: #DE7377;
+    color: #fb474f;
   }
   .home_clean .money{
     font-size: 20px;
-    color: #DE7377;
+    color: #fb474f;
     font-weight: bold;
   }
   .home_clean .btn{
     color: #fff;
-    background-color:#DE7377;
-    position: absolute;
-    right: 10px;
-    bottom: 8px;
+    background-color:#fb474f;
+    float: right;
+    line-height: 13px;
+    width:80px;
+    height: 25px;
+    border-radius: 5px;
+    text-align: center;
   }
 
 

@@ -1,5 +1,10 @@
 <template>
-  <router-view :servers="servers" :server="server" :massage="massage"></router-view>
+  <router-view :servers="servers"
+               :server="server"
+               :sellerCommentData="sellerCommentData"
+               :sellers="sellers"
+               :seller2="seller2"
+                ></router-view>
 </template>
 
 <script>
@@ -8,7 +13,9 @@
     data(){
       return {
         servers:[],
-        server:[]
+        sellers:[],
+        server:[],
+        seller2:{}
       }
     },
     created() {
@@ -18,12 +25,19 @@
           const msg = result.data
           this.servers = msg.servers
         })
+      axios.get("/api/seller")
+        .then((response) =>{
+          const result = response.data
+          const msg = result.data
+          this.sellers = msg.sellers
+        })
     },
     methods:{
-        massage (data) {
-            this.server=data
-            console.log(this.server)
-        }
+      sellerCommentData(data){
+        this.seller=data.server_list
+        this.seller2 = data
+        console.log(this.seller2)
+      }
     }
   }
 </script>

@@ -33,16 +33,18 @@
           <div class="server_name">
             服务商
           </div>
-
           <!--每个服务商是一个server_msg-->
-        <div class="server_msg" v-for="(server,index) in servers" :key="index">
-          <div class="yjz">
-            <img :src="server.server_log" alt="">
-            <p>{{server.seller_name}}</p>
+          <div v-for="seller in sellers">
+          <div class="server_msg">
+              <router-link :to="`/server_comments/${seller.id}`">
+                <div class="yjz">
+                  <img :src="seller.img" alt="">
+                  <p>{{seller.name}}</p>
+                </div>
+                <span class="sm_text">已成功接单{{seller.success_num}}&nbsp;&nbsp;&nbsp;&nbsp;好评{{seller.good_num}}%</span>
+              </router-link>
+            </div>
           </div>
-          <span class="sm_text">已成功接单{{server.success_num}}&nbsp;&nbsp;&nbsp;&nbsp;好评{{server.good_num}}%</span>
-        </div>
-
 
           <div class="down_app">
             <div class="down">
@@ -51,22 +53,24 @@
           </div>
         </div>
 
-        <div class="list" v-for="(server,index) in servers" :key="index">
-          <div class="list_img">
-            <img :src="server.image" alt="">
+          <div class="list" v-for="(server,index) in servers" :key="index">
+            <router-link :to="`/seller_list/${server.id}`" >
+              <div class="list_img">
+                <img :src="server.image" alt="">
+              </div>
+              <div>
+                <p id="server_name">{{server.server_name}}</p>
+                <p id="server_content">{{server.server_content}}</p>
+                <span id="price">{{server.price}}</span><span id="text">元/每小时</span>
+                <span id="old_price">{{server.old_price}}元</span>
+                <p>
+                  <span class="seller_name">{{server.seller_name}}</span>
+                  <span class="seller_name">已售{{server.success_num}}</span>
+                  <span class="seller_name">好评{{server.good_num}}%</span>
+                </p>
+              </div>
+            </router-link>
           </div>
-          <div>
-            <p id="server_name">{{server.server_name}}</p>
-            <p id="server_content">{{server.server_content}}</p>
-            <span id="price">{{server.price}}</span><span id="text">元/每小时</span>
-            <span id="old_price">{{server.old_price}}元</span>
-            <p>
-              <span class="seller_name">{{server.seller_name}}</span>
-              <span class="seller_name">已售{{server.success_num}}</span>
-              <span class="seller_name">好评{{server.good_num}}%</span>
-            </p>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -80,16 +84,7 @@
   import Vfooter from  "./footer.vue"
   import fenye from "./fenye/fenye.vue"
   export default {
-    data () {
-      return {
-        servers:[]
-      }
-    },
-    created(){
-      const result = this.$route.query.servers
-      this.servers=result
-      console.log(result)
-    },
+    props:['servers','sellers'],
     components : {
       Vfooter,
       Vheader,
@@ -99,7 +94,12 @@
 </script>
 
 <style scoped>
-
+  .list a{
+    text-decoration: none;
+  }
+  .server_msg a{
+    text-decoration: none;
+  }
   #server_name{
     display: inline-block;
     margin-top: 30px;

@@ -34,11 +34,11 @@ export default new VueRouter({
       component: server_join
     },
     {
-      path : '/seller_list',
+      path : '/seller_list/:id',
       component: seller_list
     },
     {
-      path : '/server_comments',
+      path : '/server_comments/:id',
       component: server_comments
     },
     {
