@@ -39,7 +39,7 @@
   /*header部分的样式*/
   .header {
     height: 65px;
-    width : 100%;
+    width : 1366px;
     position:fixed;
     top :0;
     right:0;

@@ -35,28 +35,14 @@
           </div>
 
           <!--每个服务商是一个server_msg-->
-          <div class="server_msg">
+        <div class="server_msg" v-for="(server,index) in servers" :key="index">
           <div class="yjz">
-            <img src="./images/yjz.jpg" alt="">
-            <p>云家政</p>
+            <img :src="server.server_log" alt="">
+            <p>{{server.seller_name}}</p>
           </div>
-          <span class="sm_text">已成功接单26934&nbsp;&nbsp;&nbsp;&nbsp;好评80%</span>
+          <span class="sm_text">已成功接单{{server.success_num}}&nbsp;&nbsp;&nbsp;&nbsp;好评{{server.good_num}}%</span>
         </div>
-          <div class="server_msg">
-            <div class="yjz">
-              <img src="./images/yjz.jpg" alt="">
-              <p>云家政</p>
-            </div>
-            <span class="sm_text">已成功接单26934&nbsp;&nbsp;&nbsp;&nbsp;好评80%</span>
-          </div>
 
-          <div class="server_msg">
-            <div class="yjz">
-              <img src="./images/yjz.jpg" alt="">
-              <p>云家政</p>
-            </div>
-            <span class="sm_text">已成功接单26934&nbsp;&nbsp;&nbsp;&nbsp;好评80%</span>
-          </div>
 
           <div class="down_app">
             <div class="down">
@@ -64,132 +50,24 @@
             </div>
           </div>
         </div>
-        <div class="list">
+
+        <div class="list" v-for="(server,index) in servers" :key="index">
           <div class="list_img">
-            <img src="./images/2-homeClean/clean2.jpg" alt="">
+            <img :src="server.image" alt="">
           </div>
-          <ul class="list_des">
-            <li class="des">
-              家庭保洁
-            </li>
-            <li>家庭保洁服务，2小时起订。（云家政暂时不提供带保洁工具上门服务）</li>
-            <li class="price">
-              价格
-              <p class="now"><b class="nowPr">30</b>元/小时</p>
-              <p class="old">原价<b class="oldPr">50</b>元</p>
-            </li>
-            <li class="outNum">
-              已售&nbsp;&nbsp;
-              <p class="now">34844</p>
-              <p>好评86%</p>
-            </li>
-          </ul>
-        </div>
-        <div class="list">
-          <div class="list_img">
-            <img src="./images/2-homeClean/clean2.jpg" alt="">
+          <div>
+            <p id="server_name">{{server.server_name}}</p>
+            <p id="server_content">{{server.server_content}}</p>
+            <span id="price">{{server.price}}</span><span id="text">元/每小时</span>
+            <span id="old_price">{{server.old_price}}元</span>
+            <p>
+              <span class="seller_name">{{server.seller_name}}</span>
+              <span class="seller_name">已售{{server.success_num}}</span>
+              <span class="seller_name">好评{{server.good_num}}%</span>
+            </p>
           </div>
-          <ul class="list_des">
-            <li class="des">
-              家庭保洁
-            </li>
-            <li>家庭保洁服务，2小时起订。（云家政暂时不提供带保洁工具上门服务）</li>
-            <li class="price">
-              价格
-              <p class="now"><b class="nowPr">30</b>元/小时</p>
-              <p class="old">原价<b class="oldPr">50</b>元</p>
-            </li>
-            <li class="outNum">
-              已售&nbsp;&nbsp;
-              <p class="now">34844</p>
-              <p>好评86%</p>
-            </li>
-          </ul>
         </div>
-        <div class="list">
-          <div class="list_img">
-            <img src="./images/2-homeClean/clean2.jpg" alt="">
-          </div>
-          <ul class="list_des">
-            <li class="des">
-              家庭保洁
-            </li>
-            <li>家庭保洁服务，2小时起订。（云家政暂时不提供带保洁工具上门服务）</li>
-            <li class="price">
-              价格
-              <p class="now"><b class="nowPr">30</b>元/小时</p>
-              <p class="old">原价<b class="oldPr">50</b>元</p>
-            </li>
-            <li class="outNum">
-              已售&nbsp;&nbsp;
-              <p class="now">34844</p>
-              <p>好评86%</p>
-            </li>
-          </ul>
-        </div>
-        <div class="list">
-          <div class="list_img">
-            <img src="./images/2-homeClean/clean2.jpg" alt="">
-          </div>
-          <ul class="list_des">
-            <li class="des">
-              家庭保洁
-            </li>
-            <li>家庭保洁服务，2小时起订。（云家政暂时不提供带保洁工具上门服务）</li>
-            <li class="price">
-              价格
-              <p class="now"><b class="nowPr">30</b>元/小时</p>
-              <p class="old">原价<b class="oldPr">50</b>元</p>
-            </li>
-            <li class="outNum">
-              已售&nbsp;&nbsp;
-              <p class="now">34844</p>
-              <p>好评86%</p>
-            </li>
-          </ul>
-        </div>
-        <div class="list">
-          <div class="list_img">
-            <img src="./images/2-homeClean/clean2.jpg" alt="">
-          </div>
-          <ul class="list_des">
-            <li class="des">
-              家庭保洁
-            </li>
-            <li>家庭保洁服务，2小时起订。（云家政暂时不提供带保洁工具上门服务）</li>
-            <li class="price">
-              价格
-              <p class="now"><b class="nowPr">30</b>元/小时</p>
-              <p class="old">原价<b class="oldPr">50</b>元</p>
-            </li>
-            <li class="outNum">
-              已售&nbsp;&nbsp;
-              <p class="now">34844</p>
-              <p>好评86%</p>
-            </li>
-          </ul>
-        </div>
-        <div class="list">
-          <div class="list_img">
-            <img src="./images/2-homeClean/clean2.jpg" alt="">
-          </div>
-          <ul class="list_des">
-            <li class="des">
-              家庭保洁
-            </li>
-            <li>家庭保洁服务，2小时起订。（云家政暂时不提供带保洁工具上门服务）</li>
-            <li class="price">
-              价格
-              <p class="now"><b class="nowPr">30</b>元/小时</p>
-              <p class="old">原价<b class="oldPr">50</b>元</p>
-            </li>
-            <li class="outNum">
-              已售&nbsp;&nbsp;
-              <p class="now">34844</p>
-              <p>好评86%</p>
-            </li>
-          </ul>
-        </div>
+
       </div>
     </div>
     <fenye></fenye>
@@ -202,6 +80,16 @@
   import Vfooter from  "./footer.vue"
   import fenye from "./fenye/fenye.vue"
   export default {
+    data () {
+      return {
+        servers:[]
+      }
+    },
+    created(){
+      const result = this.$route.query.servers
+      this.servers=result
+      console.log(result)
+    },
     components : {
       Vfooter,
       Vheader,
@@ -211,6 +99,42 @@
 </script>
 
 <style scoped>
+
+  #server_name{
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 18px;
+  }
+  #server_content{
+
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+  }
+  #price{
+    font-size: 30px;
+    color: red;
+  }
+  #text{
+    font-size: 16px;
+    color: #999;
+    margin-right: 30px;
+  }
+  #old_price{
+    font-size: 16px;
+    color: #999;
+  }
+
+  .seller_name{
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 14px!important;
+    color: #999;
+  }
+
+
   /*排序列表 ul*/
   .sort_list{
     width: 99.2%;
@@ -308,56 +232,7 @@
     width:100%;
     height:100%;
   }
-  .list_des{
-    float: left;
-    margin-top: 35px;
-  }
-  .list_des p{
-    display: inline-block;
-  }
-  .des{
-    font-size: 20px;
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-  .price .nowPr{
-    font-size: 25px;
-    font-weight: 200;
-    color: red;
-  }
-  .now{
-    color: red;
-    margin-right: 50px;
-    margin-top: 20px;
-  }
-  .price .old{
-    color: #999;
-  }
-  .tdc_list{
-    width: 115px;
-    float: right;
-    margin: 30px;
-    text-align: center;
 
-  }
-  .tdc_list .tdc{
-    width: 115px;
-    height: 115px;
-  }
-  .tdc_list .tdc img{
-    width:100%;
-    height:100%;
-  }
-  .tdc_list p{
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-  }
-  .tdc_list .red{
-    color: red;
-    margin-top: 10px;
-  }
 
   /*//////////////////////////////////////////////////////////////////*/
 

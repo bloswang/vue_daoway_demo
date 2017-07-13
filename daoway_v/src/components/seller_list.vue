@@ -124,15 +124,7 @@
   import Vheader from "./header.vue"
   import Vfooter from  "./footer.vue"
   export default {
-      data () {
-          return {
-              server:[]
-          }
-      },
-      created(){
-        this.server = this.$route.query.server
-        console.log(this.server)
-      },
+      props:['server'],
       components : {
         Vfooter,
         Vheader

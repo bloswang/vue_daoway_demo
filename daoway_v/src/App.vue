@@ -1,5 +1,5 @@
 <template>
-  <router-view :servers="servers"></router-view>
+  <router-view :servers="servers" :server="server" :massage="massage"></router-view>
 </template>
 
 <script>
@@ -7,7 +7,8 @@
   export default {
     data(){
       return {
-        servers:[]
+        servers:[],
+        server:[]
       }
     },
     created() {
@@ -17,6 +18,12 @@
           const msg = result.data
           this.servers = msg.servers
         })
+    },
+    methods:{
+        massage (data) {
+            this.server=data
+            console.log(this.server)
+        }
     }
   }
 </script>
