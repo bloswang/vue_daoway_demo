@@ -7,86 +7,22 @@
           <a href="#">更多服务</a>
         </div>
         <ul>
-          <router-link to="/seller_list" >
-            <li>
-              <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
-                <p class="massage">招牌massage</p>
-                <p class="item_text">时长：90分钟
+            <router-link :to="{path: '/seller_list', query:{server: server}}"  v-for="(server,index) in servers" :key="index">
+              <li>
+                <div class="home_clean">
+                  <img :src="server.image">
+                  <p class="massage">{{server.seller_name}}</p>
+                  <p class="item_text">时长：90分钟
                         服务姿势：卧姿
 
                         适用介绍：
                         适用于工作繁忙...</p>
-                <span class="money">135</span>
-                <span>元/次</span>
-                <button class="btn">查看详情</button>
-              </div>
-            </li>
-          </router-link>
-          <router-link to="/seller_list" >
-            <li>
-              <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
-                <p class="massage">招牌massage</p>
-                <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-                <span class="money">135</span>
-                <span>元/次</span>
-                <button class="btn">查看详情</button>
-              </div>
-            </li>
-          </router-link>
-          <router-link to="/seller_list" >
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean1.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-        </router-link>
-          <router-link to="/seller_list" >
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean1.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-        </router-link>
-          <router-link to="/seller_list" >
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean1.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-        </router-link>
+                  <span class="money">{{server.price}}</span>
+                  <span>元/次</span>
+                  <button class="btn">查看详情</button>
+                </div>
+              </li>
+            </router-link>
         </ul>
       </div>
       <div class="content">
@@ -96,77 +32,22 @@
           <a href="#">更多服务</a>
         </div>
         <ul>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean1.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
+          <router-link to="/seller_list"  v-for="(server,index) in servers" :key="index">
+            <li>
+              <div class="home_clean">
+                <img :src="server.image">
+                <p class="massage">{{server.seller_name}}</p>
+                <p class="item_text">时长：90分钟
                         服务姿势：卧姿
 
                         适用介绍：
                         适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean2.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean3.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean4.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-
-          </li>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean5.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
+                <span class="money">{{server.price}}</span>
+                <span>元/次</span>
+                <button class="btn">查看详情</button>
+              </div>
+            </li>
+          </router-link>
         </ul>
       </div>
       <div class="content">
@@ -176,77 +57,22 @@
           <a href="#">更多服务</a>
         </div>
         <ul>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean1.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
+          <router-link to="/seller_list"  v-for="(server,index) in servers" :key="index">
+            <li>
+              <div class="home_clean">
+                <img :src="server.image">
+                <p class="massage">{{server.seller_name}}</p>
+                <p class="item_text">时长：90分钟
                         服务姿势：卧姿
 
                         适用介绍：
                         适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean2.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean3.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean4.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-
-          </li>
-          <li>
-            <div class="home_clean">
-              <img src="./images/2-homeClean/clean5.jpg" alt="">
-              <p class="massage">招牌massage</p>
-              <p class="item_text">时长：90分钟
-                        服务姿势：卧姿
-
-                        适用介绍：
-                        适用于工作繁忙...</p>
-              <span class="money">135</span>
-              <span>元/次</span>
-              <button class="btn">查看详情</button>
-            </div>
-          </li>
+                <span class="money">{{server.price}}</span>
+                <span>元/次</span>
+                <button class="btn">查看详情</button>
+              </div>
+            </li>
+          </router-link>
         </ul>
       </div>
     </div>
@@ -254,8 +80,10 @@
 
 <script>
     export default {
+      props:['servers'],
 
     }
+
 </script>
 
 <style scoped >

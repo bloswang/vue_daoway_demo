@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import "../static/reset.css"
 
+import "./mock/mockserver"
 
 /* eslint-disable no-new */
 new Vue({

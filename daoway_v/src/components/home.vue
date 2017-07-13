@@ -134,7 +134,7 @@
           </ul>
         </div>
       </div>
-      <Vconent></Vconent>
+      <Vconent :servers="servers"></Vconent>
       <Vfooter></Vfooter>
     </div>
 </template>
@@ -149,11 +149,12 @@
     import Vconent from "./content.vue"
 
     export default {
-        components : {
-            Vfooter,
-            Vheader,
-            Vconent
-        }
+      props:['servers'],
+      components : {
+          Vfooter,
+          Vheader,
+          Vconent
+      }
     }
 </script>
 

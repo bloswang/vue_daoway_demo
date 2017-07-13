@@ -5,119 +5,38 @@
       <div class="content">
         <div class="seller">服务商</div>
         <ul>
-          <router-link to="/server_comments" >
+          <router-link
+            :to="{path: '/server_comments', query:{seller: seller}}"
+            v-for="(seller,index) in sellers" :key="index">
             <li>
               <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
+                <img :src="seller.img" alt="">
                 <p style="margin-top: 15px">
-                  <b>云足疗</b>
+                  <b>{{seller.name}}</b>
                 </p>
                 <p class="pp">
-                  已接单233单
-                  <i>好评98%</i>
+                  已接单{{seller.success_num}}单
+                  <i>好评{{seller.good_num}}%</i>
                 </p>
               </div>
             </li>
           </router-link>
-          <router-link to="/server_comments" >
-            <li>
-              <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
-                <p style="margin-top: 15px">
-                  <b>云足疗</b>
-                </p>
-                <p class="pp">
-                  已接单233单
-                  <i>好评98%</i>
-                </p>
-              </div>
-            </li>
-          </router-link>
-          <router-link to="/server_comments" >
-            <li>
-              <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
-                <p style="margin-top: 15px">
-                  <b>云足疗</b>
-                </p>
-                <p class="pp">
-                  已接单233单
-                  <i>好评98%</i>
-                </p>
-              </div>
-            </li>
-          </router-link>
-          <router-link to="/server_comments" >
-            <li>
-              <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
-                <p style="margin-top: 15px">
-                  <b>云足疗</b>
-                </p>
-                <p class="pp">
-                  已接单233单
-                  <i>好评98%</i>
-                </p>
-              </div>
-            </li>
-          </router-link>
+
           <div class="sellerIn">
 
           </div>
         </ul>
         <ul>
-          <router-link to="/server_comments" >
+          <router-link to="/server_comments" v-for="(seller,index) in sellers" :key="index">
             <li>
               <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
+                <img :src="seller.img" alt="">
                 <p style="margin-top: 15px">
-                  <b>云足疗</b>
+                  <b>{{seller.name}}</b>
                 </p>
                 <p class="pp">
-                  已接单233单
-                  <i>好评98%</i>
-                </p>
-              </div>
-            </li>
-          </router-link>
-          <router-link to="/server_comments" >
-            <li>
-              <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
-                <p style="margin-top: 15px">
-                  <b>云足疗</b>
-                </p>
-                <p class="pp">
-                  已接单233单
-                  <i>好评98%</i>
-                </p>
-              </div>
-            </li>
-          </router-link>
-          <router-link to="/server_comments" >
-            <li>
-              <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
-                <p style="margin-top: 15px">
-                  <b>云足疗</b>
-                </p>
-                <p class="pp">
-                  已接单233单
-                  <i>好评98%</i>
-                </p>
-              </div>
-            </li>
-          </router-link>
-          <router-link to="/server_comments" >
-            <li>
-              <div class="home_clean">
-                <img src="./images/2-homeClean/clean1.jpg" alt="">
-                <p style="margin-top: 15px">
-                  <b>云足疗</b>
-                </p>
-                <p class="pp">
-                  已接单233单
-                  <i>好评98%</i>
+                  已接单{{seller.success_num}}单
+                  <i>好评{{seller.good_num}}%</i>
                 </p>
               </div>
             </li>
@@ -133,12 +52,27 @@
 </template>
 
 <script>
+  import axios from "axios"
   import Vheader from "./header.vue"
   import Vfooter from  "./footer.vue"
   export default {
+    data(){
+        return{
+            sellers:[]
+        }
+    },
     components : {
       Vfooter,
       Vheader
+    },
+    created(){
+      axios.get("/api/seller")
+        .then((response) =>{
+          const result = response.data
+          const msg = result.data
+          this.sellers = msg.sellers
+          console.log(this.sellers)
+        })
     }
   }
 </script>

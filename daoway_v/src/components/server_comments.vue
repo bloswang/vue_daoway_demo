@@ -45,48 +45,29 @@
           <div class="list_name" >
             <div class="name" id='ser'>服务项目</div>
           </div>
-          <router-link to="/seller_list" class="no_line">
+          <router-link to="/seller_list" class="no_line" v-for="(sel,index) in seller" :key="index">
             <div class="list">
               <div class="list_img">
-                <img src="./menu-clean/clean1.jpg" alt="">
+                <img :src="sel.list_img" alt="">
               </div>
               <div class="list_text">
-                <p class="p1">家庭保洁</p>
-                <p class="p2">服务内容： 家庭保洁服务，2小时起订。（云家政暂时不提供带保...</p>
-                <p class="p3"><span class="big_red">30</span>元/小时 <span>原价50元</span> <span class="rignt_text">已售34818</span></p>
+                <p class="p1">{{sel.list_name}}</p>
+                <p class="p2">{{sel.list_time}}</p>
+                <p class="p3"><span class="big_red">{{sel.list_price}}</span>元/小时 <span>原价{{sel.list_old_price}}元</span> <span class="rignt_text">已售{{sel.list_num}}</span></p>
               </div>
             </div>
           </router-link>
-          <router-link to="/seller_list" class="no_line">
-            <div class="list">
-              <div class="list_img">
-                <img src="./menu-clean/clean1.jpg" alt="">
-              </div>
-              <div class="list_text">
-                <p class="p1">家庭保洁</p>
-                <p class="p2">服务内容： 家庭保洁服务，2小时起订。（云家政暂时不提供带保...</p>
-                <p class="p3"><span class="big_red">30</span>元/小时 <span>原价50元</span> <span class="rignt_text">已售34818</span></p>
-              </div>
-            </div>
-          </router-link>
+
             <!--服务商简介-->
           <div class="list_name m_t" id='sel' >
             <div class="name">商家简介</div>
           </div>
           <div class="list">
             <div class="seler_text">
-              <span>上海家谐网络科技有限公司</span>
+              <span>{{seller2.server_name}}</span>
               <img src="./menu-clean/seller-logo.jpg" alt="">
 
-            <p>云家政是家政服务在线预订平台。
-            我们的目标是让每个家庭都能获得诚信、
-            便捷、有保障的家政服务。云家政拥有国内
-            最大的实名认证家庭服务员数据库，目前平台
-            上有超过100000名专业服务人员；数百个家政
-            服务商，遍布全国主要城市各个社区。
-            云家政倡导简单、轻松的生活方式。通过把分散的家政服务能
-            力汇集和分配，让中国家庭获得诚信、便捷、有保障的家政服务，
-            解决日常生活中的麻烦事，把更多时间留给自己和家人，提高生活品质。
+            <p>{{seller2.seller_massage}}
             </p>
             </div>
           </div>
@@ -175,6 +156,18 @@
   import Vfooter from  "./footer.vue"
   import fenye from "./fenye/fenye.vue"
   export default {
+    data () {
+      return {
+        seller:[],
+        seller2:{}
+      }
+    },
+    created(){
+        const result = this.$route.query.seller
+        this.seller2 = result
+        this.seller = result.server_list
+        console.log(result)
+    },
     components : {
       Vfooter,
       Vheader,

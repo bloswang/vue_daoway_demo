@@ -8,20 +8,20 @@
         </div>
         <div class="list">
           <div class="list_img">
-            <img src="./images/2-homeClean/clean2.jpg" alt="">
+            <img :src="server.image" alt="">
           </div>
           <ul class="list_des">
             <li class="des">
-              家庭保洁
+              {{server.seller_name}}
             </li>
             <li class="price">
               价格
-              <p class="now"><b class="nowPr">30</b>元/小时</p>
-              <p class="old">原价<b class="oldPr">50</b>元</p>
+              <p class="now"><b class="nowPr">{{server.price}}</b>元/小时</p>
+              <p class="old">原价<b class="oldPr">{{server.old_price}}</b>元</p>
             </li>
             <li class="outNum">
               已售&nbsp;&nbsp;
-              <p class="now">34844</p>
+              <p class="now">{{server.success_num}}</p>
             </li>
           </ul>
           <div class="tdc_list">
@@ -38,21 +38,21 @@
           </div>
           <div class="server_msg">
             <div class="yjz">
-              <img src="./images/yjz.jpg" alt="">
-              <p>云家政</p>
+              <img :src="server.server_log" alt="">
+              <p>{{server.seller_name}}</p>
             </div>
             <div class="server_num">
               <p>
                 成功接单
-                <i>13383</i>
+                <i>{{server.success_num}}</i>
               </p>
               <p>
                 接单率
-                <i>99%</i>
+                <i>{{server.numberes}}%</i>
               </p>
               <p>
                 好评率
-                <i>88%</i>
+                <i>{{server.good_num}}%</i>
               </p>
             </div>
           </div>
@@ -70,7 +70,7 @@
           </div>
           <br>
           服务内容：
-          <p>家庭保洁服务，2小时起订。（云家政暂时不提供带保洁工具上门服务）</p>
+          <p>{{server.server_content}}</p>
           <br>
           服务保障：
           <p>1.根据满意度提交评价。</p>
@@ -93,12 +93,12 @@
             服务范围
           </div>
 
-          北京 上海 广州 深圳 南京 武汉 西安 成都 杭州 苏州 天津 常州 东莞 合肥 宁波 无锡 厦门 郑州 佛山
+         {{server.server_range}}
           <br><br>
           <div class="border_B">
           服务时间
           </div>
-          <p> 08:00-20:00最近可预约时间:07月11日 13:30</p>
+          <p> {{server.server_time}}最近可预约时间:{{server.new_time}}</p>
           <br>
           <div class="border_B">
             订购须知
@@ -112,8 +112,7 @@
           <div class="border_B">
             商家简介
           </div>
-          <p>云家政是家政服务在线预订平台。我们的目标是让每个家庭都能获得诚信、便捷、有保障的家政服务。云家政拥有国内最大的实名认证家庭服务员数据库，目前平台上有超过100000名专业服务人员；数百个家政服务商，遍布全国主要城市各个社区。
-          云家政倡导简单、轻松的生活方式。通过把分散的家政服务能力汇集和分配，让中国家庭获得诚信、便捷、有保障的家政服务，解决日常生活中的麻烦事，把更多时间留给自己和家人，提高生活品质。</p>
+          <p>{{server.server_msg}}</p>
         </div>
       </div>
     </div>
@@ -125,10 +124,19 @@
   import Vheader from "./header.vue"
   import Vfooter from  "./footer.vue"
   export default {
-    components : {
-      Vfooter,
-      Vheader
-    }
+      data () {
+          return {
+              server:[]
+          }
+      },
+      created(){
+        this.server = this.$route.query.server
+        console.log(this.server)
+      },
+      components : {
+        Vfooter,
+        Vheader
+      }
   }
 </script>
 
